@@ -1,3 +1,17 @@
-<a [routerLink]="['./detail/1']">
-  Click Detail
-</a>
+<li *ngFor="let pokemon of pokemons | async">
+  <a [routerLink]="['detail', pokemon.id]">
+    Click Detail of {{pokemon.nome}}
+  </a>
+  
+</li>
+
+<div 
+  infiniteScroll 
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()">
+</div>
+
+
+
+<!--  -->

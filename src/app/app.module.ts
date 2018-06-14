@@ -7,7 +7,8 @@ import { DetailPokemonComponent } from './pokemon/detail/detail.component';
 import { ErrorComponent } from './error/error.component';
 import { BadrequestComponent } from './error/badrequest/badrequest.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'pokemons', component: ListPokemonComponent },
@@ -27,7 +28,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
-    BrowserModule
+    HttpClientModule,
+    BrowserModule,
+    InfiniteScrollModule
   ],
   exports: [ RouterModule ],
   providers: [],
