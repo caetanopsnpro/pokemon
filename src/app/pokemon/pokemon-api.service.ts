@@ -8,9 +8,19 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class PokemonApiService {
 
+  urlBase = "api/v2/pokemon/";
   constructor(private http: HttpClient) { }
 
-  getPokemons(){
-    return this.http.get('http://5b22ce7eb968350014dd003a.mockapi.io/xp/pokemon/list');
+  getPokemons(next, quantidade){
+    if(!quantidade) quantidade = 100;
+    if(next){
+      return this.http.get(next);
+    }else{
+      return this.http.get(`${this.urlBase}?limit=${quantidade}`);
+    }
+  }
+
+  getPokemonDetail(url){
+    return this.http.get(url);
   }
 }

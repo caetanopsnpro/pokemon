@@ -1,6 +1,6 @@
 <li *ngFor="let pokemon of pokemons | async">
-  <a [routerLink]="['detail', pokemon.id]">
-    Click Detail of {{pokemon.nome}}
+  <a [routerLink]="['detail', pokemon.url]">
+    {{pokemon.name}}
   </a>
   
 </li>
@@ -11,7 +11,3 @@
   [infiniteScrollThrottle]="1000"
   (scrolled)="onScroll()">
 </div>
-
-
-
-<!--  -->

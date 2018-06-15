@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonApiService } from './../pokemon-api.service';
 import { BehaviorSubject } from 'rxjs';
 import * as _ from 'lodash';
+import { PokeApiModel, PokeApiItemModel } from './../../../model/pokemon/list.pokeapi';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -10,7 +11,10 @@ import * as _ from 'lodash';
 })
 export class ListPokemonComponent implements OnInit {
 
-  pokemons = new BehaviorSubject([]);
+  pokemons = new BehaviorSubject(Array<PokeApiItemModel>());
+  pokemonsRetrieved = new PokeApiModel();
+  totalItensPorPagina = 100;
+  keepPaging = true;
   constructor(private pokemonApiService: PokemonApiService) {}
 
   ngOnInit() { 
@@ -19,11 +23,17 @@ export class ListPokemonComponent implements OnInit {
 
   private getPokemons(){
     let currentPokemons = this.pokemons.getValue();
-    this.pokemonApiService
-      .getPokemons()
-      .subscribe(result => {
-        this.pokemons.next(_.concat(currentPokemons, result))
+    if(this.keepPaging){
+      this.pokemonApiService
+      .getPokemons(this.pokemonsRetrieved.next, this.totalItensPorPagina)
+      .subscribe((pokemons: PokeApiModel) => {
+        if(this.totalItensPorPagina !== pokemons.results.length){
+          this.keepPaging = false;
+        }
+        this.pokemonsRetrieved = pokemons;
+        this.pokemons.next(_.concat(currentPokemons, pokemons.results))
       })
+    }
   }
 
   onScroll(){

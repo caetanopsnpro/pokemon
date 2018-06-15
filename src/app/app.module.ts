@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'pokemons', component: ListPokemonComponent },
-  { path: 'pokemons/detail/:id', component: DetailPokemonComponent },
+  { path: 'pokemons/detail/:url', component: DetailPokemonComponent },
   { path: '', redirectTo: '/pokemons', pathMatch: 'full'},
   { path: '**', component: NotfoundComponent}
 ];
