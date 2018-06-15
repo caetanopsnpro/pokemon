@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ListPokemonComponent } from './pokemon/list/list.component';
 import { DetailPokemonComponent } from './pokemon/detail/detail.component';
-import { ErrorComponent } from './error/error.component';
-import { BadrequestComponent } from './error/badrequest/badrequest.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HttpClientModule } from '@angular/common/http';
@@ -26,9 +24,7 @@ const appRoutes: Routes = [
     AppComponent,
     ListPokemonComponent,
     DetailPokemonComponent,
-    ErrorComponent,
-    NotfoundComponent,
-    BadrequestComponent    
+    NotfoundComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
