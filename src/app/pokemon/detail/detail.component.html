@@ -1,0 +1,71 @@
+<div class="detail-container" *ngIf="pokemon">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            Dados Gerais 
+            </mat-expansion-panel-header>
+            <img [src]="pokemon.sprites.front_default" alt="Avatar">
+            <li><b>Nome:</b> {{pokemon.name}}</li>
+            <li><b>Peso:</b> {{pokemon.weight}}</li>
+            <li><b>Altura:</b> {{pokemon.height}}</li>
+            <li><b>Ordem:</b> {{pokemon.order}}</li>
+        </mat-expansion-panel>
+        
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            Habilidades
+            </mat-expansion-panel-header>
+        
+            <p>O {{pokemon.name}} possui habilidades como:</p>
+            <li *ngFor="let habilidade of pokemon.abilities ">
+                <b>{{habilidade.ability.name}}</b>
+            </li>
+        
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            Movimentos
+            </mat-expansion-panel-header>
+        
+            <p>O {{pokemon.name}} possui os seguintes movimentos:</p>
+            <li *ngFor="let movimento of pokemon.moves ">
+                <b>{{movimento.move.name}}</b>
+            </li>
+        
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            Estatísticas
+            </mat-expansion-panel-header>
+        
+            <p>As seguintes estatísticas representam {{pokemon.name}}:</p>
+            <li *ngFor="let estatistica of pokemon.stats ">
+                <b>{{estatistica.stat.name}}</b>: 
+                <ul>Esforço: {{estatistica.effort}}</ul>
+                <ul>Base: {{estatistica.base_stat}}</ul>
+            </li>
+        
+        </mat-expansion-panel>        
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            Espécies
+            </mat-expansion-panel-header>
+        
+            <p>{{pokemon.name}} é da espécie: {{pokemon.species.name}}</p>
+        
+        </mat-expansion-panel>        
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            Indíce de Jogos
+            </mat-expansion-panel-header>
+        
+            <p>Seus índices variam em:</p>
+            <li *ngFor="let indice of pokemon.game_indices ">
+                <b>{{indice.version.name}}</b>:
+                <ul>Index é de: {{indice.game_index}}</ul> 
+            </li>
+        
+        </mat-expansion-panel>        
+    </mat-accordion>
+              
+</div>
