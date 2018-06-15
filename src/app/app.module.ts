@@ -9,6 +9,8 @@ import { BadrequestComponent } from './error/badrequest/badrequest.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list'
 
 const appRoutes: Routes = [
   { path: 'pokemons', component: ListPokemonComponent },
@@ -24,13 +26,15 @@ const appRoutes: Routes = [
     DetailPokemonComponent,
     ErrorComponent,
     NotfoundComponent,
-    BadrequestComponent
+    BadrequestComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     BrowserModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    BrowserAnimationsModule,
+    MatListModule
   ],
   exports: [ RouterModule ],
   providers: [],
