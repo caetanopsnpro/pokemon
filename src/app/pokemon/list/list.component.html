@@ -1,0 +1,13 @@
+<li *ngFor="let pokemon of pokemons | async">
+  <a [routerLink]="['detail', pokemon.url]">
+    {{pokemon.name}}
+  </a>
+  
+</li>
+
+<div 
+  infiniteScroll 
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()">
+</div>
