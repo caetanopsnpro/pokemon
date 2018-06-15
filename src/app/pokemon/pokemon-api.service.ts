@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from './../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class PokemonApiService {
 
-  urlBase = "api/v2/pokemon/";
+  url = "api/v2/pokemon/";
   constructor(private http: HttpClient) { }
 
   getPokemons(next, quantidade){
@@ -16,7 +17,7 @@ export class PokemonApiService {
     if(next){
       return this.http.get(next);
     }else{
-      return this.http.get(`${this.urlBase}?limit=${quantidade}`);
+      return this.http.get(`${environment.baseUrl}${this.url}?limit=${quantidade}`);
     }
   }
 
