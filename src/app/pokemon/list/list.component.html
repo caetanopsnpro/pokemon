@@ -1,9 +1,10 @@
-<li *ngFor="let pokemon of pokemons | async">
-  <a [routerLink]="['detail', pokemon.url]">
-    {{pokemon.name}}
-  </a>
-  
-</li>
+<div class="list-container" *ngIf="pokemons">
+  <mat-nav-list>
+    <mat-list-item *ngFor="let pokemon of pokemons | async">
+      <a matLine [routerLink]="['detail', pokemon.url]">{{pokemon.name}}</a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>
 
 <div 
   infiniteScroll 
@@ -11,3 +12,4 @@
   [infiniteScrollThrottle]="1000"
   (scrolled)="onScroll()">
 </div>
+
