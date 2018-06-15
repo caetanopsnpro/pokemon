@@ -10,7 +10,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule } from '@angular/material/list'
+import { MatListModule } from '@angular/material/list';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 const appRoutes: Routes = [
   { path: 'pokemons', component: ListPokemonComponent },
@@ -26,7 +28,7 @@ const appRoutes: Routes = [
     DetailPokemonComponent,
     ErrorComponent,
     NotfoundComponent,
-    BadrequestComponent,
+    BadrequestComponent    
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -34,7 +36,10 @@ const appRoutes: Routes = [
     BrowserModule,
     InfiniteScrollModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    NgxSpinnerModule,
+    MatExpansionModule
+
   ],
   exports: [ RouterModule ],
   providers: [],
