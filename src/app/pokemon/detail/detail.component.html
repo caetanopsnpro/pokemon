@@ -1,14 +1,16 @@
 <div class="detail-container" *ngIf="pokemon">
+    <div class="inset-text-effect">Detalhes do pokemon: {{pokemon.name}}</div>
+    <link async href="http://fonts.googleapis.com/css?family=Aladin" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"/>    
+    <br>
     <mat-accordion>
         <mat-expansion-panel>
             <mat-expansion-panel-header>
             Dados Gerais 
             </mat-expansion-panel-header>
-            <img [src]="pokemon.sprites.front_default" alt="Avatar">
+            <img [src]="pokemon.sprites.front_default" alt="Avatar" >
             <li><b>Nome:</b> {{pokemon.name}}</li>
             <li><b>Peso:</b> {{pokemon.weight}}</li>
             <li><b>Altura:</b> {{pokemon.height}}</li>
-            <li><b>Ordem:</b> {{pokemon.order}}</li>
         </mat-expansion-panel>
         
         <mat-expansion-panel>
@@ -67,5 +69,8 @@
         
         </mat-expansion-panel>        
     </mat-accordion>
-              
+    <br>
+    <div class="back">
+        <a mat-raised-button [routerLink]="['/pokemons']" color="primary" >Voltar</a>
+    </div>
 </div>

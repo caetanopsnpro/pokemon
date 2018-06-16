@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+
 
 const appRoutes: Routes = [
   { path: 'pokemons', component: ListPokemonComponent },
@@ -34,7 +36,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatListModule,
     NgxSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule
 
   ],
   exports: [ RouterModule ],

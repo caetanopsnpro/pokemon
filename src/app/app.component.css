@@ -1,0 +1,37 @@
+.inset-text-effect {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 70px/1 "Aladin", Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+    text-transform: normal;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: pre;
+    text-shadow: 1px 1px 0 rgba(140,140,140,0.6) , -1px -1px 1px rgba(0,0,0,0.67) ;
+    margin-top:50px;
+}
+
+.header-container{
+    background: url(./../assets/imgs/header/pokemons_header.gif);
+    box-shadow: 0 2px 10px grey;
+    background-size: cover;
+    background-position: 50%;
+    position: fixed; 
+    top:0px; 
+    left:0px; 
+    height:200px; 
+    right:0px;
+    z-index: 1;
+}
+
+.body-container{
+    position:absolute;
+    top:200px; 
+    bottom:0; 
+    left:0px; 
+    right:0px; 
+    z-index: 0;
+}
